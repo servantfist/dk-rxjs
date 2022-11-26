@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+    showConfig = true;
+    showDownloader = true;
+
+    toggleConfig() { this.showConfig = !this.showConfig; }
+    toggleDownloader() { this.showDownloader = !this.showDownloader; }
 
 }

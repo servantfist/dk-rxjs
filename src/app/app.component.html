@@ -2,3 +2,27 @@
 <div class="container">
   <router-outlet></router-outlet>
 </div>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Configuration Options</mat-card-title>
+    </mat-card-header>
+    <section class="example-section">
+        <mat-checkbox
+            class="configCheckbox"
+            [(ngModel)]="showConfig"
+            (click)="showConfig">Show Config
+        </mat-checkbox>
+        <mat-checkbox
+            class="configCheckbox"
+            [(ngModel)]="showDownloader"
+            (click)="toggleDownloader()">Show Downloader
+        </mat-checkbox>
+    </section>
+</mat-card>
+<section *ngIf="showConfig">
+    <app-config></app-config>
+</section>
+<section *ngIf="showDownloader">
+    <app-downloader></app-downloader>
+</section>
+<app-messages></app-messages>

@@ -11,20 +11,39 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { NavComponent } from './nav/nav.component';
+import { MessagesComponent } from './messages/messages.component';
+import { ConfigComponent } from './config/config.component';
+import { DownloaderComponent } from './downloader/downloader.component';
+import { HttpErrorHandler } from './http-error-handler.service';
+import { MessageService } from './message.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+const materialModules = [CommonModule, MatCardModule, MatCheckboxModule];
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    InMemoryWebApiModule.forRoot(AppData, { delay: 1000 }),
-    AppRoutingModule
-  ],
-  declarations: [
-    AppComponent,
-    WelcomeComponent,
-    PageNotFoundComponent,
-    NavComponent
-  ],
-  bootstrap: [AppComponent]
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        InMemoryWebApiModule.forRoot(AppData, { delay: 1000 }),
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        materialModules
+    ],
+    declarations: [
+        AppComponent,
+        WelcomeComponent,
+        PageNotFoundComponent,
+        NavComponent,
+        MessagesComponent,
+        ConfigComponent,
+        DownloaderComponent
+    ],
+    providers: [HttpErrorHandler, MessageService],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

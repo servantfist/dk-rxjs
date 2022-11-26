@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ProductService } from '../product.service';
+import {MessageService} from "../../message.service";
 
 @Component({
   selector: 'pm-product-list',
@@ -13,11 +14,12 @@ export class ProductListAltComponent {
 
   products$ = this.productService.products$;
 
-  constructor(private productService: ProductService) { }
+  constructor(
+      private productService: ProductService,
+      private messageService: MessageService) { }
 
-  
 
   onSelected(productId: number): void {
-    console.log('Not yet implemented');
+      this.messageService.add('Not yet implemented');
   }
 }
