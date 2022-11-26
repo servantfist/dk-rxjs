@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
-import { Subscription } from 'rxjs';
+// import { Subscription } from 'rxjs';
 import { ProductCategory } from '../product-categories/product-category';
 
-import { Product } from './product';
+// import { Product } from './product';
 import { ProductService } from './product.service';
 
 @Component({
@@ -15,8 +15,29 @@ export class ProductListComponent {
   errorMessage = '';
   categories: ProductCategory[] = [];
 
+  // NOTE:  Using the async pipe in the template so don't need to subscribe to the observable
   products$ = this.productService.products$;
-  
+
+  /* NOTE:  The following is the original code which disappears when we
+      replace it with an observable and a pipe() operator.
+      This is called 'Declarative Programming' and is the preferred
+        way to write Angular code vs. 'Imperative Programming'
+
+    products: Product[] = [];
+    sub!: Subscription;
+
+    ngOnInit(): void {
+        this.sub = this.productService.getProducts()
+        .subscribe({
+            next: products => this.products = products,
+            error: err => this.errorMessage = err
+        });
+    }
+
+    ngOnDestroy(): void {
+        this.sub.unsubscribe();
+    }
+  */
 
   constructor(private productService: ProductService) { }
 
