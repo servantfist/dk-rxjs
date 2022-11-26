@@ -1,0 +1,14 @@
+<h3>Download the text file</h3>
+<div>
+    <button  type="button" mat-raised-button (click)="download()">
+        Download
+    </button>
+    <button type="button" mat-raised-button (click)="clear()">clear</button>
+    <p *ngIf="contents">Contents: "{{ contents }}"</p>
+</div>
+
+<!--
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->

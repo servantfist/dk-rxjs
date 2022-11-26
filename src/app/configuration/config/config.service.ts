@@ -15,14 +15,14 @@ export interface Config {
 export class ConfigService {
     configUrl = 'assets/config.json';
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {}
 
     getConfig() {
-        return this.http.get<Config>(this.configUrl)
-            .pipe(
-                retry(3), // retry a failed request up to 3 times
-                catchError(this.handleError) // then handle the error
-            );
+        return this.http.get<Config>(this.configUrl).pipe(
+            // tap((data) => console.log('All: ' + JSON.stringify(data))),
+            retry(3), // retry a failed request up to 3 times
+            catchError(this.handleError) // then handle the error
+        );
     }
 
     getConfig_1() {
@@ -35,15 +35,13 @@ export class ConfigService {
     }
 
     getConfig_3() {
-        return this.http.get<Config>(this.configUrl)
-            .pipe(
-                catchError(this.handleError)
-            );
+        return this.http
+            .get<Config>(this.configUrl)
+            .pipe(catchError(this.handleError));
     }
 
     getConfigResponse(): Observable<HttpResponse<Config>> {
-        return this.http.get<Config>(
-            this.configUrl, { observe: 'response' });
+        return this.http.get<Config>(this.configUrl, { observe: 'response' });
     }
 
     private handleError(error: HttpErrorResponse) {
@@ -54,21 +52,22 @@ export class ConfigService {
             // The backend returned an unsuccessful response code.
             // The response body may contain clues as to what went wrong.
             console.error(
-                `Backend returned code ${error.status}, body was: `, error.error);
+                `Backend returned code ${error.status}, body was: `,
+                error.error
+            );
         }
         // Return an observable with a user-facing error message.
-        return throwError(() => new Error('Something bad happened; please try again later.'));
+        return throwError(
+            () => new Error('Something bad happened; please try again later.')
+        );
     }
 
     makeIntentionalError() {
-        return this.http.get('not/a/real/url')
-            .pipe(
-                catchError(this.handleError)
-            );
+        return this.http
+            .get('not/a/real/url')
+            .pipe(catchError(this.handleError));
     }
-
 }
-
 
 /*
 Copyright Google LLC. All Rights Reserved.

@@ -1,0 +1,23 @@
+section {
+    margin: 2px;
+    padding: 2rem;
+    border-top: 1px solid black;
+}
+
+.config-selection {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+}
+
+.config-selection > div {
+    margin: 2px;
+    padding: 2rem;
+}
+
+.checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem;
+    text-align:center;
+}

@@ -3,27 +3,28 @@ import { HttpClient } from '@angular/common/http';
 
 import { tap } from 'rxjs/operators';
 
-import { MessageService } from '../message.service';
+import { MessageService } from '../../message.service';
 
 @Injectable()
 export class DownloaderService {
     constructor(
         private http: HttpClient,
-        private messageService: MessageService) { }
+        private messageService: MessageService
+    ) {}
 
     getTextFile(filename: string) {
         // The Observable returned by get() is of type Observable<string>
         // because a text response was specified.
         // There's no need to pass a <string> type parameter to get().
-        return this.http.get(filename, {responseType: 'text'})
-            .pipe(
-                tap( // Log the result or error
-                    {
-                        next: (data) => this.log(filename, data),
-                        error: (error) => this.logError(filename, error)
-                    }
-                )
-            );
+        return this.http.get(filename, { responseType: 'text' }).pipe(
+            tap(
+                // Log the result or error
+                {
+                    next: (data) => this.log(filename, data),
+                    error: (error) => this.logError(filename, error)
+                }
+            )
+        );
     }
 
     private log(filename: string, data: string) {
@@ -37,7 +38,6 @@ export class DownloaderService {
         this.messageService.add(message);
     }
 }
-
 
 /*
 Copyright Google LLC. All Rights Reserved.

@@ -1,0 +1,35 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Configuration Options</mat-card-title>
+    </mat-card-header>
+    <div class="config-selection">
+        <div>
+            <label>
+                <input
+                    type="checkbox"
+                    [checked]="showConfig"
+                    (click)="toggleConfig()"
+                />
+                Config
+            </label>
+        </div>
+        <div>
+            <label>
+                <input
+                    type="checkbox"
+                    [checked]="showDownloader"
+                    (click)="toggleDownloader()"
+                />
+                Downloader
+            </label>
+        </div>
+    </div>
+</mat-card>
+<div>
+    <section *ngIf="showConfig">
+        <app-config></app-config>
+    </section>
+    <section *ngIf="showDownloader">
+        <app-downloader></app-downloader>
+    </section>
+</div>

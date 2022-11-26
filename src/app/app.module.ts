@@ -12,36 +12,30 @@ import { WelcomeComponent } from './home/welcome.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { NavComponent } from './nav/nav.component';
 import { MessagesComponent } from './messages/messages.component';
-import { ConfigComponent } from './config/config.component';
-import { DownloaderComponent } from './downloader/downloader.component';
 import { HttpErrorHandler } from './http-error-handler.service';
 import { MessageService } from './message.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 
-const materialModules = [CommonModule, MatCardModule, MatCheckboxModule];
+import { ConfigurationModule } from './configuration/configuration.module';
 
 @NgModule({
     imports: [
         BrowserModule,
+        HttpClientModule,
         FormsModule,
         HttpClientModule,
         InMemoryWebApiModule.forRoot(AppData, { delay: 1000 }),
         AppRoutingModule,
         BrowserAnimationsModule,
-        materialModules
+        ConfigurationModule
     ],
     declarations: [
         AppComponent,
         WelcomeComponent,
         PageNotFoundComponent,
         NavComponent,
-        MessagesComponent,
-        ConfigComponent,
-        DownloaderComponent
+        MessagesComponent
     ],
     providers: [HttpErrorHandler, MessageService],
     bootstrap: [AppComponent]
