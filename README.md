@@ -11,6 +11,9 @@ as well as her Ng-Conf 2020 talk on RxJS that is also available on Pluralsight.
 
 I also updated that unfortunately ugly APM logo to something a little more modern ... still ugly, but a little less so.
 
+Recommended reading: [Stop Using Shared Material Module](https://indepth.dev/posts/1191/stop-using-shared-material-module)
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you 
