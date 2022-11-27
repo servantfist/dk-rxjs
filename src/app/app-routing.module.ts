@@ -18,8 +18,8 @@ import { PageNotFoundComponent } from './page-not-found.component';
             {
                 path: 'configuration',
                 loadChildren: () =>
-                    import('./configuration/configuration.module').then(
-                        (m) => m.ConfigurationModule
+                    import('./configuration/config-mgr.module').then(
+                        (m) => m.ConfigMgrModule
                     )
             },
             { path: '', redirectTo: 'welcome', pathMatch: 'full' },

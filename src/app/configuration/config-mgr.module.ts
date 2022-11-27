@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ConfigurationComponent } from './configuration.component';
+import { ConfigMgrComponent } from './config-mgr.component';
 import { ConfigComponent } from './config/config.component';
 import { DownloaderComponent } from './downloader/downloader.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,10 +21,10 @@ const materialModules = [MatButtonModule, MatCardModule, MatCheckboxModule];
         RouterModule.forChild([
             {
                 path: '',
-                component: ConfigurationComponent
+                component: ConfigMgrComponent
             }
         ])
     ],
-    declarations: [ConfigurationComponent, ConfigComponent, DownloaderComponent]
+    declarations: [ConfigMgrComponent, ConfigComponent, DownloaderComponent]
 })
-export class ConfigurationModule {}
+export class ConfigMgrModule {}

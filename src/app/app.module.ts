@@ -17,7 +17,7 @@ import { MessageService } from './message.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
-import { ConfigurationModule } from './configuration/configuration.module';
+import { ConfigMgrModule } from './configuration/config-mgr.module';
 
 @NgModule({
     imports: [
@@ -28,7 +28,7 @@ import { ConfigurationModule } from './configuration/configuration.module';
         InMemoryWebApiModule.forRoot(AppData, { delay: 1000 }),
         AppRoutingModule,
         BrowserAnimationsModule,
-        ConfigurationModule
+        ConfigMgrModule
     ],
     declarations: [
         AppComponent,

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'pm-configuration',
-    templateUrl: './configuration.component.html',
-    styleUrls: ['./configuration.component.css']
+    selector: 'pm-config-mgr',
+    templateUrl: './config-mgr.component.html',
+    styleUrls: ['./config-mgr.component.css']
 })
-export class ConfigurationComponent {
+export class ConfigMgrComponent {
     showConfig = true;
     showDownloader = true;
 
