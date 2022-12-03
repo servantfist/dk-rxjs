@@ -66,6 +66,7 @@ export class ProductService {
         this.products$,
         this.productCategories$
     ]).pipe(
+        // JS destructuring syntax to create variables for the two parameters
         map(([products, categories]) =>
             products.map(
                 (product) =>
